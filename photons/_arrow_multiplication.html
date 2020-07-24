@@ -14,5 +14,25 @@
 	<script src="lib/three.min.js"></script>
 	<script src="PHOTON-engine.js"></script>
 	<script src="arrow_multiplication.js"></script>
+
+
+	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+
+	<script>
+	  // Your web app's Firebase configuration
+	  this.firebaseConfig = {
+	    apiKey: "AIzaSyCkVRhmjEs7BwJmMZYQg5i89LRP1KnysqM",
+	    authDomain: "photon-codes-communication.firebaseapp.com",
+	    databaseURL: "https://photon-codes-communication.firebaseio.com",
+	    projectId: "photon-codes-communication",
+	    storageBucket: "photon-codes-communication.appspot.com",
+	    messagingSenderId: "739482186233",
+	    appId: "1:739482186233:web:6aa5a88566c5dbb0318d28"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+		this.database = firebase.database();
+	</script>
 </body>
 </html>

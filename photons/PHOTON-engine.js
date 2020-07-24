@@ -766,10 +766,10 @@ var PHOTON = {
     this.addLabel = function(content, x, y, large) {
       large = large === undefined? false : large;
 
-      var label = new PHOTON.TextBox(content+'-label', x, y, large? 24 : 18, [255, 255, 255])
+      var label = new PHOTON.TextBox(content+'-label', x, y, large? 24 : 18, [0, 0, 0])
       ,   s = PHOTON._SCALE_FACTOR;
       label.$.css('width', (200*s)+'px')
-      label.addTextStroke();
+      //label.addTextStroke();
       label.setContent(content);
       exp.addChild(label);
     }
@@ -844,7 +844,7 @@ var PHOTON = {
 
     // Glow for blink method
     var clone = set.clone().attr({ fill: 'none', stroke: 'none' }).toBack()
-    ,   blinkGlow = clone.glow({ size: 20*s, color: '#ff9' }).toBack()
+    ,   blinkGlow = clone.glow({ size: 20*s, color: '#1f1f1f' }).toBack()
     ,   blinkNode = $(g.push(blinkGlow).node);
     blinkNode.hide();
 
@@ -882,12 +882,12 @@ var PHOTON = {
     // input is boolean which determines if the glow stays on (hold = true means
     // it does)
     this.blink = function(hold) {
-      blinkNode.fadeIn({
-        duration: 300,
-        complete: function() {
-          if(!hold) blinkNode.fadeOut({ duration: 300 });
-        }
-      })
+      // blinkNode.fadeIn({
+      //   duration: 0,
+      //   complete: function() {
+      //     setTimeout(function() {if(!hold) blinkNode.fadeOut({ duration: 0 });}, 5000);
+      //   }
+      // })
     }
     // Blink off animation
     this.blinkOff = function() {
@@ -1022,17 +1022,18 @@ var PHOTON = {
       x: cx-5, y: cy-10,
       w: 15, h: 20,
       color: '90-#fff-#8cf',
- 			stroke: '#66f'
+ 			stroke: '#1f1f1f'
     })
-    ,   blinker = blinkerGlass.graphic.clone().attr({ fill: '#ff9', stroke: 'none' })
-    ,   glow = blinker.glow({ size: 15*s, color: '#ff9' })
+    ,   blinker = blinkerGlass.graphic.clone().attr({ fill: '#1f1f1f', stroke: 'none', })  // MARKED
+    ,   glow = blinker.glow({ size: 15*s, color: '#1f1f1f' })
     ,   glowNode = $(exp.paper.group().push(blinker).push(glow).node);
     set.push(blinkerGlass.graphic, blinker, glow);
     glowNode.hide();
+    console.log(blinker)
 
     // Glow for blink method
     var clone = set.clone().attr({ fill: 'none', stroke: 'none' }).toBack()
-    ,   blinkGlow = clone.glow({ size: 20*s, color: '#ff9' }).toBack()
+    ,   blinkGlow = clone.glow({ size: 20*s, color: "#1f1f1f" }).toBack()
     ,   blinkNode = $(g.push(blinkGlow).node);
     blinkNode.hide();
 
@@ -1054,27 +1055,27 @@ var PHOTON = {
     // This method starts an animation that signifies when the
     // detector sees a photon
     this.detect = function(two) {
-      two = two === undefined? false : two;
-
-      glow.toFront();
-      blinker.toFront();
-
-      glowNode.fadeIn({
-        duration: 300,
-        complete: function() {
-          glowNode.fadeOut({
-            duration: 300,
-            complete: function() {
-              if(two) glowNode.fadeIn({
-                duration: 300,
-                complete: function() {
-                  glowNode.fadeOut({ duration: 300 });
-                }
-              })
-            }
-          });
-        }
-      })
+      // two = two === undefined? false : two;
+      //
+      // glow.toFront();
+      // blinker.toFront();
+      //
+      // glowNode.fadeIn({
+      //   duration: 0,
+      //   complete: function() {setTimeout(function() {
+      //     glowNode.fadeOut({
+      //       duration: 0,
+      //       complete: function() {
+      //         if(two) glowNode.fadeIn({
+      //           duration: 0,
+      //           complete: function() {
+      //             glowNode.fadeOut({ duration: 0 });
+      //           }
+      //         })
+      //       }
+      //     });
+      //   }, 5000);
+      // }})
     }
 
     // Blink feature
@@ -1083,12 +1084,12 @@ var PHOTON = {
     // input is boolean which determines if the glow stays on (hold = true means
     // it does)
     this.blink = function(hold) {
-      blinkNode.fadeIn({
-        duration: 300,
-        complete: function() {
-          if(!hold) blinkNode.fadeOut({ duration: 300 });
-        }
-      })
+      // blinkNode.fadeIn({
+      //   duration: 0,
+      //   complete: function() {
+      //     setTimeout(function() {if(!hold) blinkNode.fadeOut({ duration: 0 });}, 5000);
+      //   }
+      // })
     }
     // Blink off animation
     this.blinkOff = function() {
@@ -1135,9 +1136,9 @@ var PHOTON = {
     // Blink feature to make path glow
     this.blink = function() {
       var s = PHOTON._SCALE_FACTOR;
-      this.graphic.attr({ 'stroke-width': 2.5*s, stroke: '#f90' });
+      //this.graphic.attr({ 'stroke-width': 2.5*s, stroke: '#f90' });
 
-      this.glow = this.graphic.glow({ size: 15*s, color: '#ff0' });
+      this.glow = this.graphic.glow({ size: 15*s, color: '#1f1f1f' });
       this.glowNode = $(this.glow.node);
       this.glowNode.hide();
       this.glowNode.fadeIn({ duration: 500 });

@@ -23,8 +23,7 @@ function main() {
         mouse_down = 0;
       });
       $(document).click(function() {
-        console.log("p("+cam.position.x+", "+cam.position.y+", "+cam.position.z+")  // x, y, z");
-        console.log("a("+cam.theta+", "+cam.phi+")  // theta, phi\n\n\n")
+        console.log("p("+cam.position.x+", "+cam.position.y+", "+cam.position.z+");  /*x, y, z*/\na("+cam.theta+", "+cam.phi+");  /*theta, phi*/\n\n\n");
       });
       document.addEventListener("keydown", function(e) {
         down[e.which] = 1;
@@ -52,7 +51,7 @@ function loop() {
     0, 0, 0, 1
   );
   cam.phi = asin(z.y);
-  cam.theta = z.z>0?asin(z.x/cos(cam.phi)):z.x>0?2*PI/2-asin(z.x/cos(cam.phi)):-2*PI/2-asin(z.x/cos(cam.phi));
+  cam.theta = z.z>0?asin(z.x/cos(cam.phi)):z.x>0?PI-asin(z.x/cos(cam.phi)):-PI-asin(z.x/cos(cam.phi));
   var [xc, yc, zc] = [x, y, z].map(v=>v.clone());
   [xc, yc, zc].map(v=>v.multiplyScalar(5));
   if (down[87]) {

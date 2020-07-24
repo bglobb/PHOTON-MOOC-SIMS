@@ -1,3 +1,14 @@
+document.onclick = function() {
+  setTimeout(function() {
+    $("div").eq(22).css("background", "white");
+  }, 2000);
+};
+
+
+
+
+
+
 // PHOTON Engine Tutorials
 // Copyright (C) 2015-2016 Georgetown University
 // Department of Physics - Washington, DC, USA
