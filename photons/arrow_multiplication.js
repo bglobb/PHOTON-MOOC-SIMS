@@ -1,6 +1,16 @@
 document.onclick = function() {
   setTimeout(function() {
     $("div").eq(20).css("background", "white");
+    var box;
+    for (var i = 0; i < 100; i++) {
+      box = $("div").eq(i);
+      if (box.css("box-shadow")==="rgba(0, 0, 0, 0.4) 2px 2px 5px 0px"||box.css("border")==="1px solid rgb(150, 140, 100)"||box.css("background")=="rgba(0, 0, 0, 0) -webkit-linear-gradient(90deg, rgb(150, 150, 150), rgb(200, 200, 200)) repeat scroll 0% 0% / auto padding-box border-box") {
+        box.css("background", "white");
+        box.css("border", "none");
+        box.css("box-shadow", "none");
+      }
+      box.css("color", "black");
+    }
   }, 2000);
 };
 

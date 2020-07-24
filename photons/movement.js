@@ -23,7 +23,7 @@ function main() {
         mouse_down = 0;
       });
       $(document).click(function() {
-        console.log("p("+cam.position.x+", "+cam.position.y+", "+cam.position.z+");  /*x, y, z*/\na("+cam.theta+", "+cam.phi+");  /*theta, phi*/\n\n\n");
+        console.log("p("+cam.position.x.toFixed(0)+", "+cam.position.y.toFixed(0)+", "+cam.position.z.toFixed(0)+");  /*x, y, z*/\na(PI/"+(PI/cam.theta).toFixed(3)+", PI/"+(PI/cam.phi).toFixed(3)+");  /*theta, phi*/\n\n\n");
       });
       document.addEventListener("keydown", function(e) {
         down[e.which] = 1;

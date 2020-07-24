@@ -1135,13 +1135,13 @@ var PHOTON = {
 
     // Blink feature to make path glow
     this.blink = function() {
-      var s = PHOTON._SCALE_FACTOR;
-      //this.graphic.attr({ 'stroke-width': 2.5*s, stroke: '#f90' });
-
-      this.glow = this.graphic.glow({ size: 15*s, color: '#1f1f1f' });
-      this.glowNode = $(this.glow.node);
-      this.glowNode.hide();
-      this.glowNode.fadeIn({ duration: 500 });
+      // var s = PHOTON._SCALE_FACTOR;
+      // //this.graphic.attr({ 'stroke-width': 2.5*s, stroke: '#f90' });
+      //
+      // this.glow = this.graphic.glow({ size: 15*s, color: '#1f1f1f' });
+      // this.glowNode = $(this.glow.node);
+      // this.glowNode.hide();
+      // this.glowNode.fadeIn({ duration: 500 });
     }
 
     // Blink off
@@ -1393,7 +1393,7 @@ var PHOTON = {
 
     // Blink on
     this.blink = function(hold) {
-      contentBox.blink(hold);
+      //contentBox.blink(hold);
     }
     // Blink off
     this.blinkOff = function() {
@@ -2855,7 +2855,7 @@ var PHOTON = {
 
       var p = this.getWindowPosition()
       ,   s = PHOTON._SCALE_FACTOR
-      ,   size = PHOTON._REDUCE_LABEL_SIZE? 20 : 28;
+      ,   size = 0;  // Initially PHOTON._REDUCE_LABEL_SIZE? 20 : 28
 
       // Label
       this.label = new PHOTON.TextBox(name+'-label', p.x+dx, p.y+dy, size, [0, 0, 0]);
